@@ -11,9 +11,9 @@ namespace DatingApp.API.Data
         Task<IEnumerable<User>> GetUsers();
         Task<User> GetUserById(int id);        
         Task<User> GetUserByUsername(string username);        
+        Task<string> GetUserGender(string username);        
         Task<PagedList<MemberDto>> GetMembers(UserParams userParams);
         Task<MemberDto> GetMember(string username);
-        Task<bool> SaveAll();
         void Update(User user);
     }
 }

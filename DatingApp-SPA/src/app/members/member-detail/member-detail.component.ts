@@ -58,7 +58,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
         preview: false,
-      },
+          },
     ];
 
     this.galleryImages = this.getImages();

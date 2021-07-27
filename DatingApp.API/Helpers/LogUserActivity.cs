@@ -15,12 +15,12 @@ namespace DatingApp.API.Helpers
 
             if (!resultContext.HttpContext.User.Identity.IsAuthenticated) return;
 
-            var userRepository = resultContext.HttpContext.RequestServices.GetService<IUserRepository>();
+            var unitOfWork = resultContext.HttpContext.RequestServices.GetService<IUnitOfWork>();
 
             var userId = resultContext.HttpContext.User.GetUserId();
-            var user = await userRepository.GetUserById(userId);
+            var user = await unitOfWork.UserRepository.GetUserById(userId);
             user.LastActive = DateTime.Now;
-            await userRepository.SaveAll();
+            await unitOfWork.CompleteAsync();
         }
     }
 }
